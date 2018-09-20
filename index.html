@@ -14,11 +14,11 @@
 </head>
 
 <body>
-    <header class="pageTitle"><h1 id="headerStyle">Choo-se Your Train</h1></header>
+    <header class="pageTitle"><h1 id="headerStyle">CHOO-se Your Train</h1></header>
     <br><br>
     <div class="container">
         <div class="row tableTitle">Current Train Schedule</div>
-        <table class="table table-sm table-hover table-borderless table-striped">
+        <table class="table table-sm table-hover table-borderless table-striped" id="targetTable">
             <thead>
                 <tr>
                     <th>Train Name</th>
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-2 col-form-label" for="firstArrival">First Train Time (HH:mm - military time) Arrival</label>
+                        <label class="col-2 col-form-label" for="firstArrival">First Train Time (HH:mm - military time)</label>
                         <div class="col-10">
                             <input class="form-control" type="datetime" name="firstArrival" id="firstArrival">
                         </div>

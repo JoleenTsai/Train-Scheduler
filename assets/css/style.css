@@ -26,13 +26,12 @@ body {
 .tableTitle {
     background: antiquewhite;
     font-family: 'Ultra', serif;
-    border-radius: 10px 10px 0px 0px;
     padding: 2px;
+    margin-bottom: 15px;
 }
 .container {
     background-color: white;
     border: 1px solid lightgrey;
-    border-radius: 10px;
     margin-bottom: 10px;
 }
 .btn-addTrain {
@@ -44,4 +43,10 @@ body {
     background-color:beige;
     border-radius: 40px;
     font-family: 'Ultra', serif;
+}
+
+thead {
+    font-weight: bold;
+    background: #98afc7;
+    opacity: 0.8;
 }

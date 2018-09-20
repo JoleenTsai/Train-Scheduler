@@ -21,61 +21,35 @@ const addTrain = _ => {
 }
 
 trainAdded.on('child_added', data => {
-    const train = data.val()
-    let trainElement = document.push('table')
-    trainElement.innerHTML = `
-      <div class="card">
-      <div class="card-header">
-      </div>
-      <br>
-      <div class="card-block">
-        <h4 class="card-title">&nbsp; ${train.trainName}</h4>
-        <p class="card-text">&nbsp; ${train.destination}</p>
-        <p class="card-text">&nbsp; ${train.frequency}</p>
-        <p class="card-text">&nbsp; ${train.nextArrival}</p>
-        <p class="card-text">&nbsp; ${train.minutesAway}</p>
-        <br>
-      </div>
-    </div>
-    <br>`
-    document.querySelector('#trainList').appendChild(trainElement)
-})
-
-
-
-
-
-function generate_table() {
-    // get the reference for the body
-    var body = document.getElementsByTagName("body")[0];
-   
-    // creates a <table> element and a <tbody> element
-    var tbl = document.createElement("table");
-    var tblBody = document.createElement("tbody");
-   
-    // creating all cells
-    for (var i = 0; i < 2; i++) {
-      // creates a table row
-      var row = document.createElement("tr");
-   
-      for (var j = 0; j < 2; j++) {
-        // Create a <td> element and a text node, make the text
-        // node the contents of the <td>, and put the <td> at
-        // the end of the table row
-        var cell = document.createElement("td");
-        var cellText = document.createTextNode("cell in row "+i+", column "+j);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
-      }
-   
-      // add the row to the end of the table body
-      tblBody.appendChild(row);
-    }
-   
-    // put the <tbody> in the <table>
-    tbl.appendChild(tblBody);a
-    // appends <table> into <body>
-    body.appendChild(tbl);
-    // sets the border attribute of tbl to 2;
-    tbl.setAttribute("border", "2");
-  }
+  const train = data.val()
+  let trainElement = document.getElementById("targetTable");
+  var row = trainElement.insertRow(1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  cell1.innerHTML = `${train.trainName}`;
+  cell2.innerHTML = `${train.destination}`;
+  cell3.innerHTML = `${train.frequency}`;
+  cell4.innerHTML = `${train.nextArrival}`;
+  cell5.innerHTML = `${train.minutesAway}`;
+  //  document.querySelector('#trainList').appendChild(trainElement)
+  })
+    // let trainElement = document.createElement('div')
+    // trainElement.innerHTML = `
+    //   <div class="card">
+    //   <div class="card-header">
+    //   </div>
+    //   <br>
+    //   <div class="card-block">
+        // <h4 class="card-title">&nbsp; Train Name: ${train.trainName}</h4>
+    //     <p class="card-text">&nbsp; Destination: ${train.destination}</p>
+    //     <p class="card-text">&nbsp; Frequency: ${train.frequency}</p>
+    //     <p class="card-text">&nbsp; Next Arrival: ${train.nextArrival}</p>
+    //     <p class="card-text">&nbsp; Minutes Away: ${train.minutesAway}</p>
+    //     <br>
+    //   </div>
+    // </div>
+    // <br>`
+    // document.querySelector('#trainList').appendChild(trainElement)
