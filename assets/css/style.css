@@ -5,16 +5,17 @@ body {
 .pageTitle {
     display: flex;
     background-image: url(../images/tracks.jpg);
-    background-size: 100%;
+    background-size: 100% 100%;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: 250px;
     margin-top: 5px;
 
 }
 #headerStyle {
     font-family: 'Ultra', serif;
-    font-size: 300%;
+    font-size: 250%;
+    text-align: center;
     color:#25383c;
     background-color: antiquewhite;
     opacity: 0.5;
@@ -56,5 +57,5 @@ thead {
 #timer {
     font-size: 125%;
     margin-bottom: 10px;
-    text-align: center;
+    padding: 0px 0px 5px 20px;
 }
