@@ -1,0 +1,47 @@
+body {
+    background-image: url(../images/dust_scratches.png);
+}
+.pageTitle {
+    display: flex;
+    background-image: url(../images/tracks.jpg);
+    background-size: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-top: 5px;
+
+}
+#headerStyle {
+    font-family: 'Ultra', serif;
+    font-size: 300%;
+    color:#25383c;
+    background-color: antiquewhite;
+    opacity: 0.5;
+    border-radius: 40px;
+}
+.addTrainForm {
+    border: 1px solid lightgrey;
+}
+
+.tableTitle {
+    background: antiquewhite;
+    font-family: 'Ultra', serif;
+    border-radius: 10px 10px 0px 0px;
+    padding: 2px;
+}
+.container {
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.btn-addTrain {
+    background-color: antiquewhite;
+    border-radius: 40px;
+    font-family: 'Ultra', serif;
+}
+.btn-addTrain:hover {
+    background-color:beige;
+    border-radius: 40px;
+    font-family: 'Ultra', serif;
+}
