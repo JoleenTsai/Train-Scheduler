@@ -1,55 +1,61 @@
+// firebase 
 var config = {
-    apiKey: "AIzaSyCIPGU-3mtslUDA9BgA6HQxkQu4iUDqrY0",
-    authDomain: "train-scheduler-db560.firebaseapp.com",
-    databaseURL: "https://train-scheduler-db560.firebaseio.com",
-    projectId: "train-scheduler-db560",
-    storageBucket: "train-scheduler-db560.appspot.com",
-    messagingSenderId: "651788241815"
+  apiKey: "AIzaSyCIPGU-3mtslUDA9BgA6HQxkQu4iUDqrY0",
+  authDomain: "train-scheduler-db560.firebaseapp.com",
+  databaseURL: "https://train-scheduler-db560.firebaseio.com",
+  projectId: "train-scheduler-db560",
+  storageBucket: "train-scheduler-db560.appspot.com",
+  messagingSenderId: "651788241815"
 };
 firebase.initializeApp(config);
 
 var database = firebase.database()
 var trainAdded = database.ref('trains')
 
+// variable grabbing info from form
 const addTrain = _ => {
-    event.preventDefault()
-    trainAdded.push({
-        trainName: document.querySelector('#trainName').value,
-        destination: document.querySelector('#destination').value,
-        frequency: document.querySelector('#frequency').value,
-    })
+  event.preventDefault()
+  trainAdded.push({
+    trainName: document.querySelector('#trainName').value,
+    destination: document.querySelector('#destination').value,
+    firstArrival: document.querySelector('#firstArrival').value,
+    frequency: document.querySelector('#frequency').value,
+    // frequency = parseInt(frequency)
+  })
 }
 
+// button click to add to firebase and table
 trainAdded.on('child_added', data => {
   const train = data.val()
+
+  // append to table
   let trainElement = document.getElementById("targetTable");
   var row = trainElement.insertRow(1);
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  var cell4 = row.insertCell(3);
-  var cell5 = row.insertCell(4);
-  cell1.innerHTML = `${train.trainName}`;
-  cell2.innerHTML = `${train.destination}`;
-  cell3.innerHTML = `${train.frequency}`;
-  cell4.innerHTML = `${train.nextArrival}`;
-  cell5.innerHTML = `${train.minutesAway}`;
-  //  document.querySelector('#trainList').appendChild(trainElement)
-  })
-    // let trainElement = document.createElement('div')
-    // trainElement.innerHTML = `
-    //   <div class="card">
-    //   <div class="card-header">
-    //   </div>
-    //   <br>
-    //   <div class="card-block">
-        // <h4 class="card-title">&nbsp; Train Name: ${train.trainName}</h4>
-    //     <p class="card-text">&nbsp; Destination: ${train.destination}</p>
-    //     <p class="card-text">&nbsp; Frequency: ${train.frequency}</p>
-    //     <p class="card-text">&nbsp; Next Arrival: ${train.nextArrival}</p>
-    //     <p class="card-text">&nbsp; Minutes Away: ${train.minutesAway}</p>
-    //     <br>
-    //   </div>
-    // </div>
-    // <br>`
-    // document.querySelector('#trainList').appendChild(trainElement)
+  var addTrainName = row.insertCell(0);
+  var addDestination = row.insertCell(1);
+  var addFrequency = row.insertCell(2);
+  var addNextArrival = row.insertCell(3);
+  var addMinutesAway = row.insertCell(4);
+  addTrainName.innerHTML = `${train.trainName}`;
+  addDestination.innerHTML = `${train.destination}`;
+  addFrequency.innerHTML = `${train.frequency}`;
+  addNextArrival.innerHTML = nextTrain;
+  addMinutesAway.innerHTML = minutesAway;
+
+  var arrivalConverted = moment(firstArrival, "HH:mm").subtract(1, 'years');
+  console.log("ARRIVAL" + arrivalConverted)
+  var diffTime = moment().diff(moment(arrivalConverted), 'minutes');
+  console.log("DIFFFERNCE" + diffTime);
+  var timeRemaining = diffTime % frequency
+  console.log("TIME LEFT" + timeRemaining)
+  var minutesAway = freqGiven - timeRemaining
+  console.log("MINUTES AWAY" + minutesAway)
+  var nextTrain = moment().add(minutesAway, "minutes")
+  console.log(moment(nextTrain).format('HH:mm'))
+
+  // clear text-box
+  trainName = $("#trainName").val("");
+  destination = $("#destination").val("");
+  firstArrival = $("#firstArrival").val("");
+  frequency = $("#frequency").val("");
+});

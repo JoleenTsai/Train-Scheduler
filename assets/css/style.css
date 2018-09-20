@@ -1,5 +1,6 @@
 body {
     background-image: url(../images/dust_scratches.png);
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 .pageTitle {
     display: flex;
@@ -49,4 +50,11 @@ thead {
     font-weight: bold;
     background: #98afc7;
     opacity: 0.8;
+    font-size: 115%;
+}
+
+#timer {
+    font-size: 125%;
+    margin-bottom: 10px;
+    text-align: center;
 }

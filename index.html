@@ -9,13 +9,19 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Ultra" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <header class="pageTitle"><h1 id="headerStyle">CHOO-se Your Train</h1></header>
+    <header class="pageTitle">
+        <h1 id="headerStyle">CHOO-se Your Train</h1>
+    </header>
     <br><br>
+    <div class="container currentTimeContainer">
+        <div class="row tableTitle">Current Local Time</div>
+        <div class="row"><span id="timer"></span></div>
+    </div>
     <div class="container">
         <div class="row tableTitle">Current Train Schedule</div>
         <table class="table table-sm table-hover table-borderless table-striped" id="targetTable">
@@ -82,6 +88,15 @@
         crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
     <script src="assets/javascript/javascript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+    <script>
+        function date_time() {
+            now = moment().format('dddd MMMM DD, YYYY hh:mm:ss a');
+            document.getElementById('timer').innerHTML = now;
+            setTimeout(function () { date_time(); }, 1000);
+        }
+        date_time();
+    </script>
 </body>
 
 </html>
