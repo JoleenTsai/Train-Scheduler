@@ -20,11 +20,12 @@ const addTrain = _ => {
     destination: document.querySelector('#destination').value,
     firstArrival: document.querySelector('#firstArrival').value,
     frequency: document.querySelector('#frequency').value,
-    frequency: parseInt(frequency),
+    // frequency: parseInt(frequency)
   })
 }
 
-// button click to add to firebase and table
+
+// add to firebase and table
 trainAdded.on('child_added', data => {
   const train = data.val()
 
@@ -49,7 +50,7 @@ trainAdded.on('child_added', data => {
   addDestination.innerHTML = `${train.destination}`;
   addFrequency.innerHTML = `${train.frequency}`;
   addNextArrival.innerHTML = moment(nextTrain).format("h:mm a");
-  addMinutesAway.innerHTML = minutesAway + ' min';
+  addMinutesAway.innerHTML = minutesAway + " min";
 
 
   // clear text-box
